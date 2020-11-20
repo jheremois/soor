@@ -1,0 +1,106 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: #D6E3F3;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #122749;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+}
+.sidenav a {
+    display: flex;
+    align-items: center;
+    width: 209px;
+    padding: 15px 8px 15px 32px;
+    text-decoration: none;
+    font-size: 16pt;
+    color: #d6e3f3c2;
+    display: block;
+    transition: 0.3s;
+    font-weight: 300;
+}
+.sidenav .username{
+    color: #D6E3F3;
+    font-weight: 600;
+}
+.sidenav .leave{
+    width: 250px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    height: 72%;
+}
+.sidenav .logout{
+    margin: 65px 8px 8px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    padding: 10px 0px;
+    border-radius: 5px;
+    border: rgba(236, 236, 236, 0.685) 1px solid;
+}
+.sidenav a:hover {
+    color: #D6E3F3;
+}
+.sidenav .closebtn {
+    width: initial;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+header{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: #122749 2px solid;
+    background-color: #2A5AA7;
+}
+header div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    padding: 15px 0px;
+}
+header span{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header button{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    font-weight: 100;
+    font-size: 45px;
+    animation: alternate-reverse pop linear 400ms infinite;
+}
+@keyframes pop{
+    0%{
+        transform: scale(1);
+        opacity: 70%;
+    }
+    100%{
+        transform: scale(1.2);
+        opacity: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .sidenav {padding-top: 45px;}
+    header div{width: 92%;}
+}
