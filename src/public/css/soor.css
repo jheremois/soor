@@ -1,16 +1,21 @@
+@font-face{
+    font-family: sf_pro;
+    src: url(../fonts/sf.ttf) 
+}
 *{
-    margin: 0%;
-    padding: 0%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sf_pro;
+    margin: 0px;
+    padding: 0px;
 }
 body{
     background-color: #D6E3F3;
 }
+/*                              header                              */
 .sidenav {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     background-color: #122749;
@@ -21,10 +26,11 @@ body{
 .sidenav a {
     display: flex;
     align-items: center;
+    font-weight: 400;
     width: 209px;
     padding: 15px 8px 15px 32px;
     text-decoration: none;
-    font-size: 16pt;
+    font-size: 14pt;
     color: #d6e3f3c2;
     display: block;
     transition: 0.3s;
@@ -62,6 +68,7 @@ body{
     font-size: 36px;
 }
 header{
+    z-index: 1;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -83,11 +90,13 @@ header span{
     align-items: center;
 }
 header button{
+    transition-duration: 500ms;
     display: flex;
     background-color: transparent;
     border: none;
     font-weight: 100;
     font-size: 45px;
+    outline: none;
     animation: alternate-reverse pop linear 400ms infinite;
 }
 @keyframes pop{
@@ -100,7 +109,87 @@ header button{
         opacity: 100%;
     }
 }
+@keyframes close{
+    0%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(45deg);
+    }
+}
+/*                                          Task adder                        */
+#task_adder{
+    height: 1px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 700ms;
+}
+#task_adder .adder{
+    margin-top: 100px;
+    width: 50%;
+    padding: 15px;
+    border-radius: 10px;
+}
+#task_adder .adder label, #task_adder .adder{
+    background-color: #2A5AA7;
+    color: #D6E3F3;
+}
+#task_adder .adder .label{
+    display: block;
+    width: auto;
+    transform: translateY(10px);
+}
+#task_adder .adder label{
+    margin-left: 13px;
+    padding: 2px 6px;
+}
+#task_adder .adder input{margin-bottom: 12px;}
+#task_adder .adder input, #task_adder .adder textarea{
+    outline: none;
+    background-color: transparent;
+    color: #e2e2e2;
+    border: solid 1.2px #d6e3f3fa;
+    padding: 9px 5px;
+    font-size: 12pt;
+    resize: none;
+    width: 98%;
+}
+#task_adder .adder .send{
+    padding: 20px 0px 10px 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+#task_adder .adder .send button{
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 7px 20px;
+    border: solid 1px #D6E3F3;
+    color: #D6E3F3;
+    background-color: #1227493f;
+    font-size: 14pt;
+}
+@keyframes open_menu{
+    0%{
+        height: 0px;
+        opacity: 10%;
+    }
+    100%{
+        height: 390.75px;
+        opacity: 100px;
+    }
+}
+/*                                  Section                     */
+section{
+    margin: 80px 0px;
+}
 @media screen and (max-width: 768px) {
     .sidenav {padding-top: 45px;}
     header div{width: 92%;}
+    #task_adder .adder input, #task_adder .adder textarea{width: 97%;}
+    #task_adder .adder{
+        width: 80%; 
+        padding: 15px 4%;
+    }
 }

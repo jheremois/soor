@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-html
-head
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet", href="css/soor.css")
-<body>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="description", content="Separate your work in smaller task and improve your work flow")
+        link(rel="stylesheet", href="css/soor.css")
+        title Soor
+    body
+        #mySidenav(class="sidenav")
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            block options
+                a(href="#" class='username') Jheremy
+                a(href="#") Create task
+                a(href="#") About
+                a(href="#" class='logout') Log out
+        header#header
+            div
+                span(style="font-size:30px;cursor:pointer" onclick="openNav()")
+                    img(src="images/menu.svg", alt="menu")
+                a(href="/")
+                    img(src="images/logo.svg", alt="logo")
+                button#adder
+                    block top_buton
+                        img(src="images/add.svg", alt="Create task")
+        #task_adder
+            form(action="/", method="get").adder  
+                .label      
+                    label(for="title") Task
+                input(type="text" name='title' id='title')
+                .label
+                    label(for="description") Description
+                textarea#description(name="description", cols="30", rows="4")
+                .send
+                    button Start!
+        section
 
-div(id="mySidenav" class="sidenav")
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    a(href="#" class='username') Jheremy
-    a(href="#") Create task
-    a(href="#") About
-    a(href="#" class='logout') Log out
-header#header
-    div
-        span(style="font-size:30px;cursor:pointer" onclick="openNav()")
-            img(src="images/menu.svg", alt="menu")
-        a(href="/")
-            img(src="images/logo.svg", alt="logo")
-        button
-            img(src="images/add.svg", alt="Create task")
-script(src="js/soor.js")    
-   
-</body>
-</html> 
+        script(src="js/soor.js")
