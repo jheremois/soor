@@ -4,14 +4,17 @@
   "description": "Soor its a tasks web app",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "nodemon src/index.js"
   },
   "author": "github: @jheremois, instagram: @shuniata_jc",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "mysql": "^2.18.1",
     "node-env-file": "^0.1.8",
-    "pug": "^3.0.0"
+    "pug": "^3.0.0",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

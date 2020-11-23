@@ -23,7 +23,7 @@ body{
     transition: 0.5s;
     padding-top: 50px;
 }
-.sidenav a {
+.sidenav a, .sidenav p{
     display: flex;
     align-items: center;
     font-weight: 400;
@@ -97,25 +97,6 @@ header button{
     font-weight: 100;
     font-size: 45px;
     outline: none;
-    animation: alternate-reverse pop linear 400ms infinite;
-}
-@keyframes pop{
-    0%{
-        transform: scale(1);
-        opacity: 70%;
-    }
-    100%{
-        transform: scale(1.2);
-        opacity: 100%;
-    }
-}
-@keyframes close{
-    0%{
-        transform: rotate(45deg);
-    }
-    100%{
-        transform: rotate(45deg);
-    }
 }
 /*                                          Task adder                        */
 #task_adder{
@@ -182,7 +163,49 @@ header button{
 }
 /*                                  Section                     */
 section{
-    margin: 80px 0px;
+    margin: 1em;
+    margin-top: 70px;
+    column-count: 3;
+    column-gap: 1em;
+}
+#task{
+    transform: scale(0.5);
+    color: #091d3d;
+    background-color: #2a5aa777;
+    transition-duration: 500ms;
+    width: 100%;
+    display: inline-flex;
+    margin: 18px 5px 0px 0px;
+    border-radius: 12px;
+}
+.in{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+}
+#task .in div{
+    word-wrap: break-word;
+}
+.head_task{
+    font-size: 22pt;
+    font-weight: 400;
+}
+.body_task{
+    padding: 10px 0px;
+    font-size: 15pt;
+    font-weight: 200;
+}
+.time{
+    padding: 5px 0px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10pt;
+    font-weight: 100;
+    color: #0613274b;
 }
 @media screen and (max-width: 768px) {
     .sidenav {padding-top: 45px;}
@@ -191,5 +214,11 @@ section{
     #task_adder .adder{
         width: 80%; 
         padding: 15px 4%;
+    }
+    section{
+    margin: 1em;
+    margin-top: 70px;
+    column-count: 2;
+    column-gap: 1em;
     }
 }
