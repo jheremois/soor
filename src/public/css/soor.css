@@ -2,6 +2,9 @@
     font-family: sf_pro;
     src: url(../fonts/sf.ttf) 
 }
+a{
+    text-decoration: none;
+}
 *{
     font-family: sf_pro;
     margin: 0px;
@@ -74,7 +77,7 @@ header{
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-bottom: #122749 2px solid;
+    border-bottom: #00245f 1px solid;
     background-color: #2A5AA7;
 }
 header div{
@@ -88,6 +91,10 @@ header span{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+header a img{
+    width: 76px;
+    height: 24px;
 }
 header button{
     transition-duration: 500ms;
@@ -168,10 +175,10 @@ section{
     column-count: 3;
     column-gap: 1em;
 }
-#task{
+.task{
     transform: scale(0.5);
-    color: #091d3d;
-    background-color: #2a5aa777;
+    color: #102341;
+    background-color: #2a5aa74d;
     transition-duration: 500ms;
     width: 100%;
     display: inline-flex;
@@ -179,22 +186,26 @@ section{
     border-radius: 12px;
 }
 .in{
+    outline: none;
+    background-color: transparent;
+    border: none;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -ms-user-select:none;
     width: 100%;
     padding: 10px;
     overflow: hidden;
 }
-#task .in div{
+.task .in div{
     word-wrap: break-word;
 }
 .head_task{
+    display: flex;
+    justify-content: start;
     font-size: 22pt;
     font-weight: 400;
 }
 .body_task{
+    display: flex;
+    justify-content: start;
     padding: 10px 0px;
     font-size: 15pt;
     font-weight: 200;
@@ -203,9 +214,17 @@ section{
     padding: 5px 0px;
     display: flex;
     justify-content: flex-end;
-    font-size: 10pt;
+    font-size: 12pt;
     font-weight: 100;
-    color: #0613274b;
+    color: #00225586;
+}
+@media screen and (min-width: 1250px){
+    section{
+        margin: 1em;
+        margin-top: 70px;
+        column-count: 4;
+        column-gap: 1em;
+    }
 }
 @media screen and (max-width: 768px) {
     .sidenav {padding-top: 45px;}

@@ -1,5 +1,5 @@
 setTimeout(() => {
-    const task = document.querySelectorAll('#task')
+    const task = document.querySelectorAll('.task')
     
     for(i=0; i < task.length; i++)
         task[i].style.transform = 'scale(0.97)'
@@ -42,3 +42,18 @@ document.getElementById('create_task').addEventListener('click', ()=> {
 })
 
 adder.addEventListener('click', ()=> createTask())
+
+
+const lista = [1,2,4,4]
+
+/*
+for(i= 0; i < lista.length; i++){
+
+    if(lista[i] + lista[i + 1] == 8){
+        console.log(`si, ${lista[i]} + ${lista[i + 1]} = 8`)
+    }else if(lista[i] + lista[i + 1] !== 8 && lista[i + 1] < lista.length){
+        console.log(`no, ${lista[i]} + ${lista[i + 1]} no es igual a 8`);
+    }
+
+}
+*/
