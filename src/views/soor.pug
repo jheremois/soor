@@ -1,39 +1,59 @@
 <!DOCTYPE html>
 html(lang="en")
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible" content="IE=edge")
-        meta(name="description", content="Separate your work in smaller task and improve your work flow")
-        link(rel="stylesheet", href="css/soor.css")
-        title Soor
+        block head
+            meta(charset="UTF-8")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")
+            meta(name="viewport" content="width=device-width")
+            meta(http-equiv="X-UA-Compatible" content="IE=edge")
+            meta(name="theme-color" content="#2A5AA7")
+            meta(name="MobileOptimized", content="width")
+            meta(name="HandHeldFriendly", content="true")
+            link(rel="apple-touch-icon", href="images/favicon.ico")
+            link(rel="apple-touch-startup-image")
+            meta(name="description", content="Separate your work in smaller task and improve your work flow")
+            link(rel="shortcut icon", href="images/favicon.ico", type="image/x-icon")
+            link(rel="manifest", href="manifest.json")
+            link(rel="stylesheet", href="css/soor.css")
+            script(src="script.js")
+            title Soor
     body
-        #mySidenav(class="sidenav")
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            block options
-                a(href="#" class='username') Jheremy
-                a(href="#") Create task
-                a(href="#") About
+        block body
+            #mySidenav(class="sidenav")
+                a(href="javascript:void(0)" class="closebtn" onclick="closeNav()") &times
+                p(class='username') Jheremy
+                p#create_task Create task
+                a(href="#about") About
                 a(href="#" class='logout') Log out
-        header#header
-            div
-                span(style="font-size:30px;cursor:pointer" onclick="openNav()")
-                    img(src="images/menu.svg", alt="menu")
-                a(href="/")
-                    img(src="images/logo.svg", alt="logo")
-                button#adder
-                    block top_buton
-                        img(src="images/add.svg", alt="Create task")
-        #task_adder
-            form(action="/", method="get").adder  
-                .label      
-                    label(for="title") Task
-                input(type="text" name='title' id='title')
-                .label
-                    label(for="description") Description
-                textarea#description(name="description", cols="30", rows="4")
-                .send
-                    button Start!
-        section
-
-        script(src="js/soor.js")
+            header#header
+                div
+                    span(style="font-size:30px;cursor:pointer" onclick="openNav()")
+                            svg(width="35" height="21" viewBox="0 0 35 21" fill="none" xmlns="http://www.w3.org/2000/svg")
+                                path(d="M0 1H35" stroke="#D6E3F3" stroke-width="1.8")
+                                path(d="M0 10.5H35" stroke="#D6E3F3" stroke-width="1.8")
+                                path(d="M0 20H35" stroke="#D6E3F3" stroke-width="1.8")
+                    a(href="/")
+                        img(src="images/logo.svg", alt="logo")#logo
+                    button(aria-label="Justify")#adder
+                        svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                            path(d="M12 0V24" stroke="#D6E3F3" stroke-width="2")
+                            path(d="M0 12L24 12" stroke="#D6E3F3" stroke-width="2")
+            #task_adder
+                form(action="/saveTask", method="post").adder 
+                    .label      
+                        label(for="title") Task
+                    input(type="text" name='title' id='title' autocomplete='off' minlength="2" maxlength="15")
+                    .label
+                        label(for="description") Description
+                    textarea#description(name="description", cols="30", rows="4" minlength="5")
+                    .send
+                        button Start!
+            section
+                block secti
+                    -for(i=0; i < task.length; i++)
+                            form(action="/in", method="post").task
+                                button.in
+                                    .head_task= task[i].title
+                                    .body_task= task[i].description
+                                    .time=` ${time(task[i].upload_time)}`
+    script(src="js/soor.js")
