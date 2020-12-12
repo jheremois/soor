@@ -13,7 +13,11 @@ a{
 body{
     background-color: #D6E3F3;
 }
+.smaller{transform: scale(0.8);}
 /*                              header                              */
+#create_task{
+    cursor: pointer;
+}
 .sidenav {
     height: 100%;
     width: 0;
@@ -85,7 +89,7 @@ header div{
     justify-content: space-between;
     align-items: center;
     width: 96%;
-    padding: 15px 0px;
+    padding: 10px 0px;
 }
 header span{
     display: flex;
@@ -175,6 +179,9 @@ section{
     column-count: 3;
     column-gap: 1em;
 }
+section form input{
+    display: none;
+}
 .task{
     transform: scale(0.5);
     color: #102341;
@@ -200,14 +207,14 @@ section{
 .head_task{
     display: flex;
     justify-content: start;
-    font-size: 22pt;
+    font-size: 17pt;
     font-weight: 400;
 }
 .body_task{
     display: flex;
     justify-content: start;
     padding: 10px 0px;
-    font-size: 15pt;
+    font-size: 12pt;
     font-weight: 200;
 }
 .time{
@@ -217,6 +224,50 @@ section{
     font-size: 12pt;
     font-weight: 100;
     color: #00225586;
+}
+/*                      in note             */
+.new_task{
+    padding: 0px 30px;
+}
+.in_note{
+    background-color: #2a5aa74d;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 70px;
+    display: grid;
+
+}
+.in_note input, .in_note textarea{
+    border: none;
+    outline: none;
+    resize: none;
+    margin: 10px 0px;
+    color: #102341ea;
+    font-size: 15pt;
+    padding: 5px 2px;
+    background-color: transparent;
+}
+.in_note textarea{font-size: 13pt;}
+.down_options{
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.down_options a{
+    font-size: 12pt;
+    border-radius: 10px;
+    padding: 10px;
+    color: #D6E3F3;
+    background-color: rgb(226, 40, 40);
+}
+.down_options button{
+    border: none;
+    font-size: 12pt;
+    background-color: #2A5AA7;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #D6E3F3;
 }
 @media screen and (min-width: 1250px){
     section{

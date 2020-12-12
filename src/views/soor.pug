@@ -27,17 +27,18 @@ html(lang="en")
                 a(href="#" class='logout') Log out
             header#header
                 div
-                    span(style="font-size:30px;cursor:pointer" onclick="openNav()")
+                    span(style="font-size:30px;cursor:pointer" onclick="openNav()").smaller
                             svg(width="35" height="21" viewBox="0 0 35 21" fill="none" xmlns="http://www.w3.org/2000/svg")
-                                path(d="M0 1H35" stroke="#D6E3F3" stroke-width="1.8")
-                                path(d="M0 10.5H35" stroke="#D6E3F3" stroke-width="1.8")
-                                path(d="M0 20H35" stroke="#D6E3F3" stroke-width="1.8")
+                                path(d="M0 1H35" stroke="#D6E3F3" stroke-width="2")
+                                path(d="M0 10.5H35" stroke="#D6E3F3" stroke-width="2")
+                                path(d="M0 20H35" stroke="#D6E3F3" stroke-width="2")
                     a(href="/")
                         img(src="images/logo.svg", alt="logo")#logo
-                    button(aria-label="Justify")#adder
-                        svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
-                            path(d="M12 0V24" stroke="#D6E3F3" stroke-width="2")
-                            path(d="M0 12L24 12" stroke="#D6E3F3" stroke-width="2")
+                    block top_button
+                        button(aria-label="Justify")#adder
+                            svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg").smaller
+                                path(d="M12 0V24" stroke="#D6E3F3" stroke-width="2")
+                                path(d="M0 12L24 12" stroke="#D6E3F3" stroke-width="2")
             #task_adder
                 form(action="/saveTask", method="post").adder 
                     .label      
@@ -52,6 +53,9 @@ html(lang="en")
                 block secti
                     -for(i=0; i < task.length; i++)
                             form(action="/in", method="post").task
+                                input(type="text" name='title' value= task[i].title)
+                                input(type="text" name='description' value= task[i].description)
+                                input(type="text" name='time' value= task[i].upload_time)
                                 button.in
                                     .head_task= task[i].title
                                     .body_task= task[i].description

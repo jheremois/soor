@@ -26,14 +26,9 @@ module.exports = () =>{
         })
 
     })
-
-    router.get('/in/:id', (req, res)=>{
-        let {id} = req.params
-        console.log(id)
-        res.render('in')
-    })
     router.post('/in', (req, res)=>{
-        res.render('in')
+        let {title, description, time} = req.body
+        res.render('in', {title: title, description: description})
     })
 
     return router

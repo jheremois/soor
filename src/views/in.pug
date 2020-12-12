@@ -1,2 +1,29 @@
 extends soor
-block secti
+block body
+    form(action="/save", method="post")
+        #mySidenav(class="sidenav")
+            a(href="javascript:void(0)" class="closebtn" onclick="closeNav()") &times
+            p(class='username') Jheremy
+            a(href="#about") About
+            a(href="#" class='logout') Log out
+        header#header
+            div
+                span(style="font-size:30px;cursor:pointer" onclick="openNav()").smaller
+                    svg(width="35" height="21" viewBox="0 0 35 21" fill="none" xmlns="http://www.w3.org/2000/svg")
+                        path(d="M0 1H35" stroke="#D6E3F3" stroke-width="2")
+                        path(d="M0 10.5H35" stroke="#D6E3F3" stroke-width="2")
+                        path(d="M0 20H35" stroke="#D6E3F3" stroke-width="2")
+                a(href="/")
+                    img(src="images/logo.svg", alt="logo")#logo
+                block top_button
+                    button(aria-label="Justify").smaller
+                        svg(width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+                            path(d="M1 11.0281L8.53968 18.7419L26 1" stroke="#D6E3F3" stroke-width="1.4")
+        #task_adder
+        .new_task
+            .in_note
+                input(type="text" name='title' value= title)
+                textarea(name="description", cols="30", rows="10" re)= description
+                .down_options
+                    a(href="/delete").delete Delete
+                    button Save
