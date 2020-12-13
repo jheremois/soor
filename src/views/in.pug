@@ -1,6 +1,6 @@
 extends soor
 block body
-    form(action="/save", method="post")
+    form(action="/edit", method="post")
         #mySidenav(class="sidenav")
             a(href="javascript:void(0)" class="closebtn" onclick="closeNav()") &times
             p(class='username') Jheremy
@@ -22,8 +22,9 @@ block body
         #task_adder
         .new_task
             .in_note
+                input(type="text" name='id' value= id autocomplete='off' minlength="2" maxlength="15").none
                 input(type="text" name='title' value= title)
-                textarea(name="description", cols="30", rows="10" re)= description
+                textarea(name="description", cols="30", rows="10" autocomplete='off' minlength="5")= description
                 .down_options
-                    a(href="/delete").delete Delete
+                    a(href=`/delete/${id}`).delete Delete
                     button Save

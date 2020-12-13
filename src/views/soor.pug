@@ -55,7 +55,7 @@ html(lang="en")
                             form(action="/in", method="post").task
                                 input(type="text" name='title' value= task[i].title)
                                 input(type="text" name='description' value= task[i].description)
-                                input(type="text" name='time' value= task[i].upload_time)
+                                input(type="text" name='id' value= task[i].id)
                                 button.in
                                     .head_task= task[i].title
                                     .body_task= task[i].description

@@ -14,6 +14,9 @@ body{
     background-color: #D6E3F3;
 }
 .smaller{transform: scale(0.8);}
+.none{
+    display: none;
+}
 /*                              header                              */
 #create_task{
     cursor: pointer;
@@ -205,12 +208,14 @@ section form input{
     word-wrap: break-word;
 }
 .head_task{
+    text-align: start;
     display: flex;
     justify-content: start;
     font-size: 17pt;
     font-weight: 400;
 }
 .body_task{
+    text-align: start;
     display: flex;
     justify-content: start;
     padding: 10px 0px;

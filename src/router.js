@@ -27,50 +27,31 @@ module.exports = () =>{
 
     })
     router.post('/in', (req, res)=>{
-        let {title, description, time} = req.body
-        res.render('in', {title: title, description: description})
+        let {title, description, id} = req.body
+        res.render('in', {title: title, description: description, id: id})
+    })
+    router.post('/edit', async (req, res)=>{
+
+        const {title, description, id} = req.body
+        
+        const the_note = {
+            title: title,
+            description: description
+        }
+        
+        const update = await pool.query(`UPDATE tasks SET ? WHERE id = ?`, [the_note, id])
+    
+        res.redirect('/')
+    
+    })
+    router.get('/delete/:id', async (req, res)=>{
+        const {id} = req.params
+        
+        const Delete = await pool.query(`DELETE FROM tasks WHERE id = ${id}`)
+
+        res.redirect('/')
     })
 
     return router
 
 }
-/*
-
-exports.edit = (req, res)=>{
-
-    let note_front = parseInt(req.body.note_front)
-    let note_db = parseInt(req.body.note_db)
-
-    pool.query('SELECT * FROM notes',(err, result)=>{
-        res.render('edit', {
-            notes: result,
-            note_front,
-            note_db
-        })
-    })
-
-}
-
-exports.change = async (req, res)=>{
-
-    const {new_title, new_note, id} = req.body
-    
-    const the_note = {
-        title: new_title,
-        content: new_note,
-    }
-    
-    const update = await pool.query(`UPDATE notes SET ? WHERE id = ?`, [the_note, id])
-
-    res.redirect('/')
-
-}
-
-exports.delete = async (req, res)=>{
-    let {id} = req.params
-    
-    const Delete = await pool.query(`DELETE FROM notes WHERE id = ${id}`)
-
-    res.redirect('/')
-}
-*/
